@@ -1,0 +1,73 @@
+{% extends 'layout.html' %} {% block title %}Tambah Buku{% endblock %} {% block
+head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+{% endblock %} {% block content %}
+<div class="content-container">
+  <div class="border p-3 shadow">
+    <h2>Tambah Buku Baru</h2>
+    <form method="post" action="{{ url_for('tambah_buku') }}">
+      <div class="mb-3">
+        <label for="judul">Judul Buku:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="judul"
+          name="judul"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="kode_buku">Kode Buku:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="kode_buku"
+          name="kode_buku"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="penulis">Penulis:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="penulis"
+          name="penulis"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="penerbit">Penerbit:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="penerbit"
+          name="penerbit"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="tahun_terbit">Tahun Terbit:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="tahun_terbit"
+          name="tahun_terbit"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="jumlah_halaman">Jumlah Halaman:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="jumlah_halaman"
+          name="jumlah_halaman"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Tambah Buku</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

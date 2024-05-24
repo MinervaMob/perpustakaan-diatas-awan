@@ -1,0 +1,35 @@
+{% extends 'navbar2.html' %} {% block title %}Our Book - Perpustakaan Diatas
+Awan{% endblock %} {% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+{% endblock %} {% block our_book_content %}
+<div class="container-book">
+  <h1>Informasi Buku</h1>
+  <table>
+    <tr>
+      <th>Judul Buku</th>
+      <th>Kode Buku</th>
+      <th>Penulis</th>
+      <th>Penerbit</th>
+      <th>Tahun Terbit</th>
+      <th>Jumlah Halaman</th>
+    </tr>
+    {% for book in books %}
+    <tr>
+      <td>
+        <a href="{{ url_for('detail', judul_buku=book.judul_buku) }}"
+          >{{ book.judul_buku }}</a
+        >
+      </td>
+      <td>{{ book.kode_buku }}</td>
+      <td>{{ book.penulis }}</td>
+      <td>{{ book.penerbit }}</td>
+      <td>{{ book.tahun_terbit }}</td>
+      <td>{{ book.jumlah_halaman }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <div class="alert alert_info">
+    waktu eksekusi selama {{ "%.4f"|format(execution_time) }} detik
+  </div>
+</div>
+{% endblock %}

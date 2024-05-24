@@ -1,0 +1,236 @@
+<!-- layout.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Perpusakaan Diatas Awan{% endblock %}</title>
+    <!-- bootstrap style -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" href="{{url_for('static', filename='icon.png')}}" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css"
+    />
+
+    <!-- my style -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='team.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <!-- navbar start -->
+    <section class="navbar">
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-white text-dark fixed-top shadow"
+      >
+        <div class="container">
+          <a class="navbar-brand" href="{{url_for('home')}}">
+            <img
+              src="../static/icon.png"
+              alt="Bootstrap"
+              width="50"
+              height="50"
+            />
+          </a>
+          <a class="navbar-brand" href="{{url_for('home')}}"
+            >Perpusakaan <span>Diatas Awan</span></a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="{{url_for('home')}}"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="{{url_for('book')}}"
+                  >Our Book</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="{{url_for('tambah_buku')}}"
+                  >Add Book</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#team">Team</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Other
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="/presentasi">Presentasi</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+    <!-- navbar end -->
+
+    <!-- hero section -->
+    <div>{% block content %}{% endblock %}</div>
+
+    <!-- our book -->
+    <div>{% block our_book_content %}{% endblock %}</div>
+
+    <!-- halaman presentasi -->
+    <div>{% block project_content %}{% endblock %}</div>
+
+    <!-- footer -->
+    <footer class="footer-main bg-dark">
+      <div class="container">
+        <div class="row address-main">
+          <div class="col-lg-4 col-sm-12 col-xs-12">
+            <div class="address-box clearfix">
+              <div class="add-icon">
+                <img src="../static/map.svg" alt="" />
+              </div>
+              <div class="add-content">
+                <h5>Address</h5>
+                <p>
+                  Jl.Raya Cempaka, Desa Madukoro, Dusun BanjarHarum 2, RT/RW
+                  002/003 <br />
+                  Kecamatan Kotabumi Utara <br />
+                  Kabupaten Lampung Utara <br />
+                  Provinsi Lampung.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-12 col-xs-12">
+            <div class="address-box clearfix">
+              <div class="add-icon">
+                <img src="../static/phone.svg" alt="" />
+              </div>
+              <div class="add-content">
+                <h5>Phone</h5>
+                <p>+(62) 81271941437</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-12 col-xs-12">
+            <div class="address-box clearfix">
+              <div class="add-icon">
+                <img src="../static/envelope.svg" alt="" />
+              </div>
+              <div class="add-content">
+                <h5>Email</h5>
+                <p>
+                  <a href="mailto:" style="text-decoration: none"
+                    >ilhammobile99@gmail.com</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright Footer -->
+      <footer class="bg-dark text-center text-white">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+            <!-- Facebook -->
+            <a
+              class="btn btn-outline-light btn-floating m-1"
+              href="https://www.facebook.com"
+              role="button"
+              ><i class="fa fa-facebook-f"></i
+            ></a>
+
+            <!-- Twitter -->
+            <a
+              class="btn btn-outline-light btn-floating m-1"
+              href="https://twitter.com"
+              role="button"
+              ><i class="fa fa-twitter"></i
+            ></a>
+
+            <!-- Google -->
+            <a
+              class="btn btn-outline-light btn-floating m-1"
+              href="https://google.com"
+              role="button"
+              ><i class="fa fa-google"></i
+            ></a>
+
+            <!-- Instagram -->
+            <a
+              class="btn btn-outline-light btn-floating m-1"
+              href="https://instagram.com/ilhammobile99"
+              role="button"
+              ><i class="fa fa-instagram"></i
+            ></a>
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div
+          class="text-center p-3"
+          style="background-color: rgba(0, 0, 0, 0.2)"
+        >
+          Project Algoritma &copy;2023 Tim 3 .
+        </div>
+        <!-- Copyright -->
+      </footer>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+{% extends 'navbar2.html' %} {% block title %}Our Book - Perpustakaan Diatas
+Awan{% endblock %} {% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+{% endblock %} {% block our_book_content %}
+<div class="container-book">
+  <h1>Buku Ditemukan</h1>
+  {% if prefix_results %}
+  <h2>Rekomendasi Pencarian</h2>
+  <table>
+    <tr>
+      <th>Judul Buku</th>
+      <th>Kode Buku</th>
+      <th>Penulis</th>
+      <th>Penerbit</th>
+      <th>Tahun Terbit</th>
+      <th>Jumlah Halaman</th>
+    </tr>
+    {% for result in prefix_results %}
+    <tr>
+      <td>
+        <a href="{{ url_for('detail', judul_buku=result.judul_buku) }}"
+          >{{ result['judul_buku'] }}</a
+        >
+      </td>
+      <td>{{ result['kode_buku'] }}</td>
+      <td>{{ result['penulis'] }}</td>
+      <td>{{ result['penerbit'] }}</td>
+      <td>{{ result['tahun_terbit'] }}</td>
+      <td>{{ result['jumlah_halaman'] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% endif %} {% if contains_results %}
+  <h2>Hasil Pencarian</h2>
+  <table>
+    <tr>
+      <th>Judul Buku</th>
+      <th>Kode Buku</th>
+      <th>Penulis</th>
+      <th>Penerbit</th>
+      <th>Tahun Terbit</th>
+      <th>Jumlah Halaman</th>
+    </tr>
+    {% for result in contains_results %}
+    <tr>
+      <td>
+        <a href="{{ url_for('detail', judul_buku=result.judul_buku) }}"
+          >{{ result['judul_buku'] }}</a
+        >
+      </td>
+      <td>{{ result['kode_buku'] }}</td>
+      <td>{{ result['penulis'] }}</td>
+      <td>{{ result['penerbit'] }}</td>
+      <td>{{ result['tahun_terbit'] }}</td>
+      <td>{{ result['jumlah_halaman'] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% endif %} {% if not prefix_results and not contains_results %}
+  <p>Buku tidak ditemukan, masukkan kata kunci lain.</p>
+  {% endif %}
+  <div class="tindakan">
+    <a href="/book">
+      <button type="button" class="btn btn-success">Back Our Book</button>
+    </a>
+  </div>
+  {% if prefix_results or contains_results %}
+  <!-- Menampilkan waktu eksekusi jika ada hasil pencarian -->
+  <div class="alert alert_info">
+    Waktu eksekusi selama {{ waktu_eksekusi }} detik
+  </div>
+  {% endif %} {% endblock %}
+</div>

@@ -1,0 +1,47 @@
+{% extends 'layout.html' %} {% block title %}Detail - Perpustakaan Diatas Awan{%
+endblock %} {% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+{% endblock %} {% block content %}
+
+<div class="content-container">
+  <div class="border p-3 shadow">
+    <div class="mb-3">
+      <div>Judul Buku:</div>
+      <div>{{ data.judul_buku }}</div>
+    </div>
+    <div class="mb-3">
+      <div>Kode Buku:</div>
+      <div>{{ data.kode_buku }}</div>
+    </div>
+    <div class="mb-3">
+      <div>Penulis:</div>
+      <div>{{ data.penulis }}</div>
+    </div>
+    <div class="mb-3">
+      <div>Penerbit:</div>
+      <div>{{ data.penerbit }}</div>
+    </div>
+    <div class="mb-3">
+      <div>Tahun Terbit:</div>
+      <div>{{ data.tahun_terbit }}</div>
+    </div>
+    <div class="mb-3">
+      <div>Jumlah Halaman:</div>
+      <div>{{ data.jumlah_halaman }}</div>
+    </div>
+  </div>
+  <div class="tindakan">
+    <a class="btn btn-success" href="/book" role="button">Kembali</a>
+    <form
+      method="POST"
+      action="{{ url_for('hapus_buku', judul_buku=data['judul_buku']) }}"
+      onsubmit="return confirm('Apakah Anda yakin ingin menghapus buku ini?');"
+    >
+      <button type="submit" class="btn btn-danger">Hapus</button>
+    </form>
+  </div>
+  <div class="alert alert-info">
+    Waktu esekusi selama {{ execution_time }} detik
+  </div>
+</div>
+{% endblock %}
