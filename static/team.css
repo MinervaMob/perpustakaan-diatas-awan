@@ -7,8 +7,6 @@ body {
 .wrapper {
   width: 100%;
   min-height: 100px;
-  /* position: absolute; */
-  /* top: 50%; */
   transform: translateY(-50%);
   display: flex;
   justify-content: center;
@@ -25,6 +23,8 @@ body {
 
 .column .imgBx {
   position: relative;
+  max-width: 100%;
+  transition: 1s;
 }
 
 .column .imgBx img {
@@ -34,11 +34,6 @@ body {
 
 .column:hover .imgBx img {
   transform: scale(1.5);
-}
-
-.column .imgBx {
-  max-width: 100%;
-  transition: 1s;
 }
 
 .column .details {
