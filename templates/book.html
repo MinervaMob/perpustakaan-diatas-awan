@@ -15,8 +15,8 @@ Awan{% endblock %} {% block head %}
     </tr>
     {% for book in books %}
     <tr>
-      <td>
-        <a href="{{ url_for('detail', judul_buku=book.judul_buku) }}"
+      <td class="tabel-judul-buku">
+        <a class="judul-buku" href="{{ url_for('detail', judul_buku=book.judul_buku) }}"
           >{{ book.judul_buku }}</a
         >
       </td>
